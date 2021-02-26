@@ -3,13 +3,13 @@ const faker = require("faker");
 const css = require("./../constants/css");
 const config = require("./../constants/config");
 const Utils = require("./../modules/Utils");
-let listElement;
+
 context('main form', () => {
 
   before(() => {
     cy.visit(config.website);
-    listElement = cy.get(css.repeater);
   })
+
   it('toMatchImageSnapshot - whole page', () => {
     cy.visit(config.website)
       .then(() => {
@@ -17,6 +17,7 @@ context('main form', () => {
           .toMatchImageSnapshot();
       });
   });
+
   it('toMatchImageSnapshot - element', () => {
     cy.visit(config.website)
       .then(() => {
@@ -24,6 +25,7 @@ context('main form', () => {
           .toMatchImageSnapshot();
       });
   });
+
   it('form control css property check', () => {
     cy.get(css.formControl)
       .invoke('attr', 'placeholder')
@@ -35,8 +37,9 @@ context('main form', () => {
       .contains('My to-dos')
       .should('be.visible')
   });
+
   it('should add something to list', () => {
-    cy.get('form')
+    cy.get(css.form)
       .should('be.visible')
       .type(faker.name.findName())
       .submit();
@@ -48,9 +51,7 @@ context('main form', () => {
   });
 
   it('should check elements length', () => {
-    let form = cy.get('.d-flex form input');
-
-    form
+    cy.get(css.dflex + ' ' + css.form + ' ' + css.input)
       .clear()
       .type('something else')
       .type('{enter}');
@@ -59,17 +60,17 @@ context('main form', () => {
   Utils.checkElementLength(css.repeater, 4)
 
   it('toMatchSnapshot - JSON', () => {
-    cy.get('.flex-grow-1').first()
+    cy.get(css.flexgrow).first()
       .toMatchSnapshot({
         ignoreExtraFields: true,
       });
   });
+
   it('should delete the new element from the list', () => {
     cy.get(css.deleteBtn).first()
       .click();
   });
-  Utils.checkElementLength(css.repeater, 3)
   
-  // Utils.wait(5000);
+  Utils.checkElementLength(css.repeater, 3)
 
 })
