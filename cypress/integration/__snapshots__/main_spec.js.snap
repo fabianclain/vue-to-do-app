@@ -1,0 +1,27 @@
+exports[`main form > toMatchSnapshot - JSON #0`] = `
+<button
+  data-v-216cc175=""
+  class="btn border-0 flex-grow-1 text-left shadow-none"
+>
+  <span data-v-216cc175="">something else</span>
+</button>
+`;
+
+exports[`main form > toMatchImageSnapshot - element #0`] = `
+<li
+  data-v-216cc175=""
+  data-v-69d628ff=""
+  class="d-flex align-items-center list-group-item"
+>
+  <button
+    data-v-216cc175=""
+    class="btn border-0 flex-grow-1 text-left shadow-none"
+  >
+    <span data-v-216cc175="">Do the dishes</span></button
+  ><button data-v-216cc175="" class="btn btn-outline-primary border-0 ml-2">
+    <span data-v-216cc175="" class="fa fa-edit"></span></button
+  ><button data-v-216cc175="" class="btn btn-outline-danger border-0">
+    <span data-v-216cc175="" class="fa fa-trash"></span>
+  </button>
+</li>
+`;
